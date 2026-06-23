@@ -835,9 +835,39 @@
     .falling-heart {
       position: absolute;
       top: -8%;
-      line-height: 1;
+      --heart-size: 16px;
+      width: var(--heart-size);
+      height: calc(var(--heart-size) * 0.9);
+      color: #f48fb1;
       animation: heart-fall linear forwards;
       will-change: transform, opacity;
+    }
+
+    .heart-shape {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .heart-shape::before,
+    .heart-shape::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 88%;
+      background: currentColor;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart-shape::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
     }
 
     .falling-heart.is-scatter {
@@ -1302,20 +1332,23 @@
     // Falling hearts
     const heartsRain = document.getElementById('hearts-rain');
     const heartColors = ['#ffb6c1', '#f8a5c2', '#f48fb1', '#ffc0cb', '#e891ad', '#ff9eb5'];
-    const maxHearts = 10;
+    const maxHearts = 8;
 
     function spawnHeart(fromTop = true) {
       if (heartsRain.children.length >= maxHearts) return;
       const heart = document.createElement('span');
       heart.className = 'falling-heart';
       if (!fromTop) heart.classList.add('is-scatter');
-      heart.textContent = '♥';
-      const size = 12 + Math.random() * 16;
+      const shape = document.createElement('span');
+      shape.className = 'heart-shape';
+      shape.setAttribute('aria-hidden', 'true');
+      heart.appendChild(shape);
+      const size = 12 + Math.random() * 8;
       const baseDuration = 5 + Math.random() * 4;
       const drift = (Math.random() - 0.5) * 100;
       const spin = (Math.random() - 0.5) * 400;
       heart.style.left = (2 + Math.random() * 96) + '%';
-      heart.style.fontSize = size + 'px';
+      heart.style.setProperty('--heart-size', size + 'px');
       heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
       heart.style.setProperty('--heart-drift', drift + 'px');
       heart.style.setProperty('--heart-spin', spin + 'deg');

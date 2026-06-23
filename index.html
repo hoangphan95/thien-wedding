@@ -1,0 +1,1316 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding T & A - 04.07.26</title>
+  <meta name="description" content="Thiện và Ánh - Save the Date! 04.07.26.">
+  <link rel="icon" type="image/png" href="ico.png">
+  <link rel="apple-touch-icon" href="ico.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/hero.jpg">
+  <style>
+    :root {
+      --cream: #faf7f2;
+      --ivory: #f5efe6;
+      --gold: #b8956a;
+      --gold-light: #d4b896;
+      --rose: #c9a0a0;
+      --text: #3d3530;
+      --text-soft: #6b5f57;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .script {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/hero.jpg') center/cover no-repeat;
+      transform: scale(1.05);
+      animation: kenburns 20s ease-in-out infinite alternate;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(30, 20, 15, 0.35) 0%,
+        rgba(30, 20, 15, 0.55) 50%,
+        rgba(30, 20, 15, 0.75) 100%
+      );
+    }
+
+    @keyframes kenburns {
+      from { transform: scale(1.05); }
+      to   { transform: scale(1.12); }
+    }
+
+    .hero-countdown {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeUp 1.2s ease-out;
+      max-width: 520px;
+    }
+
+    .hero-branding {
+      margin: 0 auto 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(212, 184, 150, 0.4);
+      width: min(240px, 70%);
+    }
+
+    .hero-monogram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.05em;
+      margin: 0 auto 0.5rem;
+      line-height: 1;
+    }
+
+    .hero-save-date {
+      font-size: clamp(0.65rem, 1.6vw, 0.78rem);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 400;
+      margin: 0;
+      text-align: center;
+    }
+
+    .hero-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 14vw, 6.5rem);
+      font-weight: 500;
+      font-style: italic;
+      color: #fff;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-monogram-amp {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.8rem, 5.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--gold-light);
+      margin: 0 0.2em;
+      position: relative;
+      top: 0.12em;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-countdown .section-label {
+      color: var(--gold-light);
+    }
+
+    .hero-countdown .panel-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+      color: #fff;
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
+    .hero-countdown .countdown {
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.5rem, 2vw, 1.25rem);
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-countdown .countdown-item { min-width: 56px; }
+
+    .hero-countdown .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--gold-light);
+    }
+
+    .hero-countdown .countdown-label {
+      font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .hero-countdown .calendar-actions {
+      margin-top: 0;
+      gap: 0.75rem;
+    }
+
+    .hero-countdown .btn-calendar {
+      padding: 0.85rem 1.25rem;
+      font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-hint::after {
+      content: '↓';
+      display: block;
+      font-size: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.4rem, 6vw, 3.5rem);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--text);
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem auto;
+    }
+
+    /* ── Main 2-column section ── */
+    .main-section {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--ivory) 100%);
+      padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
+      position: relative;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1.25rem, 3vw, 2rem);
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .grid-cell {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .grid-invite,
+    .event-panel {
+      padding: clamp(2rem, 4vw, 2.5rem) clamp(1.25rem, 3vw, 1.75rem);
+    }
+
+    .grid-invite {
+      text-align: center;
+      background: #fff;
+      border: 1px solid rgba(184, 149, 106, 0.25);
+      justify-content: flex-start;
+      height: 100%;
+    }
+
+    .grid-invite .section-label {
+      margin-bottom: 0.5rem;
+    }
+
+    .grid-invite .section-title {
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .invite-text {
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+      color: var(--text-soft);
+      line-height: 1.85;
+      margin-bottom: 1.75rem;
+    }
+
+    .invite-closing {
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+      font-style: italic;
+      color: var(--text-soft);
+      line-height: 1.85;
+      margin-top: 1.75rem;
+    }
+
+    /* Couple showcase — horizontal names + script ampersand */
+    .couple-showcase {
+      margin: 0 auto;
+      padding: clamp(1rem, 3vw, 1.5rem) 0;
+      text-align: center;
+    }
+
+    .couple-names-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      position: relative;
+      width: 100%;
+    }
+
+    .couple-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.2;
+      color: var(--text);
+      text-align: center;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .couple-amp {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+      margin: 0.1rem 0;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .couple-showcase {
+        padding: 1.75rem 0.5rem;
+      }
+
+      .couple-name {
+        font-size: clamp(1.9rem, 8.5vw, 2.5rem);
+      }
+
+      .couple-amp {
+        font-size: clamp(1.25rem, 5vw, 1.6rem);
+      }
+    }
+
+    .event-panel {
+      background: #fff;
+      border: 1px solid rgba(184, 149, 106, 0.25);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+    }
+
+    .event-panel .section-label,
+    .event-panel .panel-title {
+      text-align: center;
+      width: 100%;
+    }
+
+    .event-panel .section-label {
+      font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .event-panel .panel-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.65rem, 3.8vw, 2.1rem);
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
+    .event-datetime {
+      margin-bottom: 1rem;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .event-date-text {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3.2vw, 1.75rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .event-time-text {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3.2vw, 1.75rem);
+      font-weight: 600;
+      font-style: normal;
+      color: var(--text);
+      letter-spacing: 0.06em;
+      margin-top: 0.15rem;
+    }
+
+    .event-panel .event-row {
+      font-size: clamp(1.1rem, 2.4vw, 1.25rem);
+      color: var(--text-soft);
+      line-height: 1.75;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .event-panel .event-row strong { color: var(--text); }
+
+    .event-venue {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .event-venue .venue-text {
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+
+    .event-venue .venue-name {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+
+    .event-venue .venue-address {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: var(--text-soft);
+    }
+
+    .btn-directions {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.85rem, 1.9vw, 0.95rem);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      transition: background 0.3s, color 0.3s;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    .btn-directions:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .btn-directions svg {
+      width: 0.9rem;
+      height: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .event-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold-light);
+      margin: 1rem auto;
+    }
+
+    .event-schedule {
+      list-style: none;
+      width: min(100%, 320px);
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .event-schedule li {
+      display: grid;
+      grid-template-columns: 4.75rem 1fr;
+      gap: 0.75rem;
+      align-items: baseline;
+      padding: 0.55rem 0;
+      font-size: clamp(1.05rem, 2.3vw, 1.2rem);
+      color: var(--text-soft);
+      border-bottom: 1px solid rgba(184, 149, 106, 0.15);
+    }
+
+    .event-schedule li:last-child { border-bottom: none; }
+
+    .event-schedule .time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.35rem);
+      font-weight: 600;
+      color: var(--gold);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .event-schedule .event-desc {
+      text-align: left;
+    }
+
+    @media (max-width: 540px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Gallery stack ── */
+    .gallery-section {
+      max-width: 480px;
+      padding: 5rem 1rem;
+      margin: 0 auto;
+    }
+
+    .gallery-stack {
+      margin: 0 auto;
+    }
+
+    .gallery-stack-inner {
+      position: relative;
+      width: min(320px, 82vw);
+      aspect-ratio: 3/4;
+      margin: 0 auto 1.5rem;
+      touch-action: pan-y;
+      user-select: none;
+      cursor: grab;
+    }
+
+    .gallery-stack-inner:active {
+      cursor: grabbing;
+    }
+
+    .gallery-card {
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(61, 53, 48, 0.2);
+      border: 4px solid #fff;
+      transform-origin: center center;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .gallery-nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+
+    .gallery-arrow {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid rgba(184, 149, 106, 0.5);
+      background: #fff;
+      color: var(--gold);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, color 0.25s, transform 0.2s;
+      padding: 0;
+    }
+
+    .gallery-arrow:hover {
+      background: var(--gold);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .gallery-counter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--text-soft);
+      min-width: 4rem;
+      text-align: center;
+    }
+
+    .gallery-swipe-hint {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      opacity: 0.7;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-section {
+        max-width: 680px;
+        padding: 5rem 2rem;
+      }
+
+      .gallery-section .section-title {
+        font-size: clamp(2.8rem, 5vw, 3.5rem);
+      }
+
+      .gallery-stack-inner {
+        width: min(440px, 52vw);
+        margin-bottom: 2rem;
+      }
+
+      .gallery-arrow {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+      }
+
+      .gallery-counter {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-section {
+        max-width: 760px;
+      }
+
+      .gallery-stack-inner {
+        width: 480px;
+      }
+    }
+
+    /* ── Calendar buttons ── */
+    .calendar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .btn-calendar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 1.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .btn-calendar:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-calendar-primary {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .btn-calendar-primary:hover {
+      background: #a07f58;
+    }
+
+    .btn-calendar-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-calendar-outline:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .btn-calendar svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 2.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0 1rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-nav:hover { opacity: 1; }
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+
+    /* ── Reveal animation ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Music toggle ── */
+    .music-toggle {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 900;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      border: 1px solid rgba(184, 149, 106, 0.55);
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--gold);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      box-shadow: 0 4px 20px rgba(61, 53, 48, 0.15);
+      transition: background 0.25s, color 0.25s, transform 0.2s, border-color 0.25s;
+    }
+
+    .music-toggle:hover {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+      transform: scale(1.05);
+    }
+
+    .music-toggle.is-playing {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+      animation: music-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes music-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(61, 53, 48, 0.15); }
+      50%      { box-shadow: 0 4px 24px rgba(184, 149, 106, 0.45); }
+    }
+
+    .music-toggle svg {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+
+    .music-toggle .icon-pause { display: none; }
+    .music-toggle.is-playing .icon-music { display: none; }
+    .music-toggle.is-playing .icon-pause { display: block; }
+
+    /* ── Falling hearts ── */
+    .hearts-rain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      overflow: hidden;
+    }
+
+    .falling-heart {
+      position: absolute;
+      top: -8%;
+      line-height: 1;
+      animation: heart-fall linear forwards;
+      will-change: transform, opacity;
+    }
+
+    .falling-heart.is-scatter {
+      opacity: var(--heart-opacity);
+      animation-name: heart-fall-scatter;
+    }
+
+    @keyframes heart-fall {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: var(--heart-opacity, 0.4); }
+      90% { opacity: var(--heart-opacity, 0.4); }
+      100% {
+        transform: translateY(108vh) translateX(var(--heart-drift, 0)) rotate(var(--heart-spin, 180deg));
+        opacity: 0;
+      }
+    }
+
+    @keyframes heart-fall-scatter {
+      0% {
+        transform: translateY(0) translateX(0) rotate(var(--heart-start-rot, 0deg));
+        opacity: var(--heart-opacity, 0.4);
+      }
+      85% { opacity: var(--heart-opacity, 0.4); }
+      100% {
+        transform: translateY(108vh) translateX(var(--heart-drift, 0)) rotate(var(--heart-spin, 180deg));
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hearts-rain { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts-rain" id="hearts-rain" aria-hidden="true"></div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-bg" role="img" aria-label="Ảnh cặp đôi"></div>
+    <div class="hero-countdown">
+      <div class="hero-branding">
+        <div class="hero-monogram" aria-label="Huy Thiện">
+          <span class="hero-letter">T</span>
+          <span class="hero-monogram-amp" aria-hidden="true">&</span>
+          <span class="hero-letter">A</span>
+        </div>
+        <p class="hero-save-date">Save the Date</p>
+      </div>
+      <p class="section-label">Đếm ngược</p>
+      <h2 class="panel-title">Ngày trọng đại</h2>
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-days">--</div>
+          <div class="countdown-label">Ngày</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-hours">--</div>
+          <div class="countdown-label">Giờ</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-mins">--</div>
+          <div class="countdown-label">Phút</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-secs">--</div>
+          <div class="countdown-label">Giây</div>
+        </div>
+      </div>
+      <div class="calendar-actions">
+        <a class="btn-calendar btn-calendar-primary" id="btn-google-cal" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Thêm vào lịch
+        </a>
+      </div>
+    </div>
+    <div class="scroll-hint">Cuộn xuống</div>
+  </header>
+
+  <!-- Main: Lời mời + Đếm ngược + Thông tin -->
+  <section class="main-section reveal">
+    <div class="main-grid">
+      <div class="grid-cell grid-invite">
+        <p class="section-label">Lời mời</p>
+        <h2 class="section-title">Chúng tôi sắp về chung một nhà</h2>
+        <p class="invite-text">
+          Với tình yêu thương và sự trân trọng, chúng tôi xin trân trọng kính mời
+          Quý vị đến dự lễ thành hôn và chung vui cùng gia đình.
+        </p>
+        <div class="couple-showcase">
+          <div class="couple-names-row">
+            <span class="couple-name script">Phan Huy Thiện</span>
+            <span class="couple-amp" aria-hidden="true">&</span>
+            <span class="couple-name script">Phan Thị Ngọc Ánh</span>
+          </div>
+        </div>
+        <p class="invite-closing">Cùng nhau chứng kiến khoảnh khắc hạnh phúc nhất của chúng tôi.</p>
+      </div>
+
+      <div class="grid-cell event-panel">
+          <p class="section-label">Thông tin</p>
+          <h3 class="panel-title">Chi tiết lễ cưới</h3>
+          <div class="event-datetime">
+            <span class="event-date-text">Thứ Bảy, 04/07/2026</span>
+            <span class="event-time-text">11:00</span>
+          </div>
+          <p class="event-row event-venue">
+            <span class="venue-text">
+              <strong class="venue-name">Mikado Place</strong>
+              <span class="venue-address">487 Nguyễn Tất Thành, Thanh Khê, Đà Nẵng</span>
+            </span>
+            <a class="btn-directions" href="https://www.google.com/maps/dir/?api=1&destination=Mikado%20Place%2C%20487%20Nguy%E1%BB%85n%20T%E1%BA%A5t%20Th%C3%A0nh%2C%20Thanh%20Kh%C3%AA%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 22s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="11" r="2.5"/>
+              </svg>
+              Dẫn đường
+            </a>
+          </p>
+          <div class="event-divider"></div>
+          <ul class="event-schedule">
+            <li><span class="time">10:30</span><span class="event-desc">Đón khách</span></li>
+            <li><span class="time">11:30</span><span class="event-desc">Hôn lễ và mời tiệc</span></li>
+            <li><span class="time">12:30</span><span class="event-desc">Chụp ảnh lưu niệm</span></li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-section reveal">
+    <p class="section-label">Khoảnh khắc</p>
+    <h2 class="section-title">Album ảnh cưới</h2>
+    <div class="gallery-stack" id="gallery-stack">
+      <div class="gallery-stack-inner" id="gallery-stack-inner">
+        <div class="gallery-card" data-index="0"><img src="images/hero.jpg" alt="Ảnh cưới 1" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="1"><img src="images/photo-01.jpg" alt="Ảnh cưới 2" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="2"><img src="images/photo-02.jpg" alt="Ảnh cưới 3" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="3"><img src="images/photo-03.jpg" alt="Ảnh cưới 4" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="4"><img src="images/photo-04.jpg" alt="Ảnh cưới 5" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="5"><img src="images/photo-05.jpg" alt="Ảnh cưới 6" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="6"><img src="images/photo-06.jpg" alt="Ảnh cưới 7" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="7"><img src="images/photo-07.jpg" alt="Ảnh cưới 8" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="8"><img src="images/photo-08.jpg" alt="Ảnh cưới 9" loading="lazy" decoding="async"></div>
+        <div class="gallery-card" data-index="9"><img src="images/photo-09.jpg" alt="Ảnh cưới 10" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="gallery-nav-row">
+        <button type="button" class="gallery-arrow gallery-prev" id="gallery-prev" aria-label="Ảnh trước">&#8249;</button>
+        <span class="gallery-counter" id="gallery-counter">1 / 10</span>
+        <button type="button" class="gallery-arrow gallery-next" id="gallery-next" aria-label="Ảnh sau">&#8250;</button>
+      </div>
+      <p class="gallery-swipe-hint">Vuốt ngang để xem thêm</p>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Xem ảnh">
+    <button class="lightbox-close" id="lb-close" aria-label="Đóng">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Ảnh trước">&#8249;</button>
+    <img id="lb-img" src="" alt="Ảnh cưới">
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Ảnh sau">&#8250;</button>
+  </div>
+
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="BIW.mp3" type="audio/mpeg">
+  </audio>
+  <button type="button" class="music-toggle" id="music-toggle" aria-label="Bật nhạc nền">
+    <svg class="icon-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+    </svg>
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>
+    </svg>
+  </button>
+
+  <script>
+    // Countdown — 04/07/2026 11:00 (GMT+7)
+    const weddingDate = new Date('2026-07-04T11:00:00+07:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '0';
+        document.getElementById('cd-hours').textContent = '0';
+        document.getElementById('cd-mins').textContent = '0';
+        document.getElementById('cd-secs').textContent = '0';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-days').textContent = d;
+      document.getElementById('cd-hours').textContent = h;
+      document.getElementById('cd-mins').textContent = m;
+      document.getElementById('cd-secs').textContent = s;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Gallery stack
+    const images = [
+      'images/hero.jpg',
+      'images/photo-01.jpg',
+      'images/photo-02.jpg',
+      'images/photo-03.jpg',
+      'images/photo-04.jpg',
+      'images/photo-05.jpg',
+      'images/photo-06.jpg',
+      'images/photo-07.jpg',
+      'images/photo-08.jpg',
+      'images/photo-09.jpg'
+    ];
+    let galleryIndex = 0;
+    const galleryCards = document.querySelectorAll('.gallery-card');
+    const galleryInner = document.getElementById('gallery-stack-inner');
+    const galleryCounter = document.getElementById('gallery-counter');
+    let dragX = 0;
+    let dragStartX = 0;
+    let isDragging = false;
+    let suppressClick = false;
+
+    function renderGalleryStack(offsetX = 0) {
+      const n = galleryCards.length;
+      galleryCards.forEach((card, i) => {
+        let pos = (i - galleryIndex + n) % n;
+        if (pos > 3) {
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+          card.style.zIndex = '0';
+          card.style.transform = 'scale(0.92) translateY(24px)';
+        } else {
+          const y = pos * 12;
+          const x = pos * 8 + (pos === 0 ? offsetX : 0);
+          const scale = 1 - pos * 0.045;
+          const rot = pos * 1.2 + (pos === 0 ? offsetX * 0.04 : 0);
+          card.style.opacity = String(1 - pos * 0.1);
+          card.style.zIndex = String(n - pos);
+          card.style.pointerEvents = pos === 0 ? 'auto' : 'none';
+          card.style.transform = `translate(${x}px, ${y}px) scale(${scale}) rotate(${rot}deg)`;
+        }
+      });
+      galleryCounter.textContent = `${galleryIndex + 1} / ${n}`;
+    }
+
+    function galleryNext() {
+      galleryIndex = (galleryIndex + 1) % galleryCards.length;
+      renderGalleryStack();
+    }
+
+    function galleryPrev() {
+      galleryIndex = (galleryIndex - 1 + galleryCards.length) % galleryCards.length;
+      renderGalleryStack();
+    }
+
+    renderGalleryStack();
+
+    document.getElementById('gallery-prev').addEventListener('click', galleryPrev);
+    document.getElementById('gallery-next').addEventListener('click', galleryNext);
+
+    function onDragStart(clientX) {
+      isDragging = true;
+      dragStartX = clientX;
+      dragX = 0;
+      galleryCards.forEach(c => c.style.transition = 'none');
+    }
+
+    function onDragMove(clientX) {
+      if (!isDragging) return;
+      dragX = clientX - dragStartX;
+      renderGalleryStack(dragX);
+    }
+
+    function onDragEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      galleryCards.forEach(c => c.style.transition = '');
+      suppressClick = Math.abs(dragX) > 10;
+      if (dragX < -60) galleryNext();
+      else if (dragX > 60) galleryPrev();
+      else renderGalleryStack();
+      dragX = 0;
+    }
+
+    galleryInner.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX), { passive: true });
+    galleryInner.addEventListener('touchmove', (e) => onDragMove(e.touches[0].clientX), { passive: true });
+    galleryInner.addEventListener('touchend', onDragEnd);
+
+    galleryInner.addEventListener('mousedown', (e) => { e.preventDefault(); onDragStart(e.clientX); });
+    window.addEventListener('mousemove', (e) => { if (isDragging) onDragMove(e.clientX); });
+    window.addEventListener('mouseup', onDragEnd);
+
+    // Lightbox (tap ảnh đang hiện để phóng to)
+    let currentIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+
+    function openLightbox(index) {
+      currentIndex = index;
+      galleryIndex = index;
+      renderGalleryStack();
+      lbImg.src = images[index];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      galleryIndex = currentIndex;
+      renderGalleryStack();
+      lbImg.src = images[currentIndex];
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      galleryIndex = currentIndex;
+      renderGalleryStack();
+      lbImg.src = images[currentIndex];
+    }
+
+    document.querySelectorAll('.gallery-card').forEach(card => {
+      card.addEventListener('click', () => {
+        if (suppressClick) { suppressClick = false; return; }
+        openLightbox(galleryIndex);
+      });
+    });
+
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', showPrev);
+    document.getElementById('lb-next').addEventListener('click', showNext);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+
+    // Add to calendar
+    const calTitle = 'Lễ cưới Phan Huy Thiện & Phan Thị Ngọc Ánh';
+    const calLocation = 'Mikado Place, 487 Nguyễn Tất Thành, Thanh Khê, Đà Nẵng';
+    const calDetails = [
+      'Chú rể: Phan Huy Thiện',
+      'Cô dâu: Phan Thị Ngọc Ánh',
+      '',
+      'Chương trình:',
+      '10:30 — Đón khách',
+      '11:30 — Hôn lễ và mời tiệc',
+      '12:30–13:00 — Chụp ảnh lưu niệm'
+    ].join('\n');
+
+    const googleCalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+      + '&text=' + encodeURIComponent(calTitle)
+      + '&dates=20260704T040000Z/20260704T060000Z'
+      + '&details=' + encodeURIComponent(calDetails)
+      + '&location=' + encodeURIComponent(calLocation);
+
+    document.getElementById('btn-google-cal').href = googleCalUrl;
+
+    // Background music — phát khi chạm hoặc kéo/vuốt màn hình
+    const weddingAudio = document.getElementById('wedding-audio');
+    const musicToggle = document.getElementById('music-toggle');
+    let musicUnlocked = false;
+
+    function setMusicPlaying(playing) {
+      musicToggle.classList.toggle('is-playing', playing);
+      musicToggle.setAttribute('aria-label', playing ? 'Tắt nhạc nền' : 'Bật nhạc nền');
+    }
+
+    async function tryStartMusic() {
+      if (musicUnlocked && !weddingAudio.paused) return true;
+      if (musicUnlocked) return false;
+      try {
+        await weddingAudio.play();
+        musicUnlocked = true;
+        setMusicPlaying(true);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function unbindScreenMusic() {
+      document.removeEventListener('touchstart', onScreenInteract);
+      document.removeEventListener('touchmove', onScreenInteract);
+      document.removeEventListener('scroll', onScreenInteract, true);
+    }
+
+    async function onScreenInteract() {
+      if (await tryStartMusic()) unbindScreenMusic();
+    }
+
+    document.addEventListener('touchstart', onScreenInteract, { passive: true });
+    document.addEventListener('touchmove', onScreenInteract, { passive: true });
+    document.addEventListener('scroll', onScreenInteract, { passive: true, capture: true });
+
+    musicToggle.addEventListener('click', async () => {
+      try {
+        if (weddingAudio.paused) {
+          await weddingAudio.play();
+          musicUnlocked = true;
+          setMusicPlaying(true);
+          unbindScreenMusic();
+        } else {
+          weddingAudio.pause();
+          setMusicPlaying(false);
+        }
+      } catch {
+        setMusicPlaying(false);
+      }
+    });
+
+    // Falling hearts
+    const heartsRain = document.getElementById('hearts-rain');
+    const heartColors = ['#ffb6c1', '#f8a5c2', '#f48fb1', '#ffc0cb', '#e891ad', '#ff9eb5'];
+    const maxHearts = 48;
+
+    function spawnHeart(fromTop = true) {
+      if (heartsRain.children.length >= maxHearts) return;
+      const heart = document.createElement('span');
+      heart.className = 'falling-heart';
+      if (!fromTop) heart.classList.add('is-scatter');
+      heart.textContent = '♥';
+      const size = 12 + Math.random() * 16;
+      const baseDuration = 5 + Math.random() * 4;
+      const drift = (Math.random() - 0.5) * 100;
+      const spin = (Math.random() - 0.5) * 400;
+      heart.style.left = (2 + Math.random() * 96) + '%';
+      heart.style.fontSize = size + 'px';
+      heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+      heart.style.setProperty('--heart-drift', drift + 'px');
+      heart.style.setProperty('--heart-spin', spin + 'deg');
+      heart.style.setProperty('--heart-opacity', (0.35 + Math.random() * 0.45).toFixed(2));
+
+      if (fromTop) {
+        heart.style.top = '-8%';
+        heart.style.animationDuration = baseDuration + 's';
+      } else {
+        const startY = 5 + Math.random() * 88;
+        heart.style.top = startY + '%';
+        heart.style.animationDuration = (baseDuration * (108 - startY) / 108) + 's';
+        heart.style.setProperty('--heart-start-rot', ((Math.random() - 0.5) * 200) + 'deg');
+      }
+
+      heartsRain.appendChild(heart);
+      heart.addEventListener('animationend', () => heart.remove());
+    }
+
+    // Mở trang: rải vài tim ở vị trí ngẫu nhiên, không dồn một chỗ
+    for (let i = 0; i < 7; i++) {
+      setTimeout(() => spawnHeart(false), 300 + i * 700 + Math.random() * 500);
+    }
+
+    // Liên tục: mỗi lần 1 tim từ trên, lệch ngang ngẫu nhiên
+    setInterval(() => spawnHeart(true), 380);
+  </script>
+</body>
+</html>

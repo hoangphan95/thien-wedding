@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="images/hero.jpg">
+  <link rel="preload" href="BIW.mp3" as="fetch" type="audio/mpeg">
   <style>
     :root {
       --cream: #faf7f2;
@@ -1005,7 +1006,7 @@
     <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Ảnh sau">&#8250;</button>
   </div>
 
-  <audio id="wedding-audio" loop preload="auto">
+  <audio id="wedding-audio" loop preload="auto" playsinline>
     <source src="BIW.mp3" type="audio/mpeg">
   </audio>
   <button type="button" class="music-toggle" id="music-toggle" aria-label="Bật nhạc nền">
@@ -1215,55 +1216,85 @@
 
     document.getElementById('btn-google-cal').href = googleCalUrl;
 
-    // Background music — phát khi chạm hoặc kéo/vuốt màn hình
+    // Background music — phát ngay khi chạm hoặc vuốt (touchstart đầu cử chỉ vuốt)
     const weddingAudio = document.getElementById('wedding-audio');
     const musicToggle = document.getElementById('music-toggle');
     let musicUnlocked = false;
+    let unlockPending = false;
+
+    weddingAudio.load();
 
     function setMusicPlaying(playing) {
       musicToggle.classList.toggle('is-playing', playing);
       musicToggle.setAttribute('aria-label', playing ? 'Tắt nhạc nền' : 'Bật nhạc nền');
     }
 
-    async function tryStartMusic() {
-      if (musicUnlocked && !weddingAudio.paused) return true;
-      if (musicUnlocked) return false;
-      try {
-        await weddingAudio.play();
-        musicUnlocked = true;
-        setMusicPlaying(true);
-        return true;
-      } catch {
-        return false;
-      }
+    function finishMusicUnlock() {
+      musicUnlocked = true;
+      unlockPending = false;
+      setMusicPlaying(true);
+      unbindScreenMusic();
     }
+
+    // play() gọi đồng bộ trong handler; iOS: phát muted trước rồi bật tiếng
+    function tryStartMusic() {
+      if (musicUnlocked && !weddingAudio.paused) return;
+      if (musicUnlocked || unlockPending) return;
+
+      unlockPending = true;
+      weddingAudio.muted = true;
+
+      const playAttempt = weddingAudio.play();
+      if (playAttempt === undefined) {
+        weddingAudio.muted = false;
+        finishMusicUnlock();
+        return;
+      }
+
+      playAttempt.then(() => {
+        weddingAudio.muted = false;
+        finishMusicUnlock();
+      }).catch(() => {
+        weddingAudio.muted = false;
+        unlockPending = false;
+        setMusicPlaying(false);
+      });
+    }
+
+    const touchCapture = { passive: true, capture: true };
 
     function unbindScreenMusic() {
-      document.removeEventListener('touchstart', onScreenInteract);
-      document.removeEventListener('touchmove', onScreenInteract);
-      document.removeEventListener('scroll', onScreenInteract, true);
+      window.removeEventListener('touchstart', onTouchStart, touchCapture);
+      document.removeEventListener('pointerdown', onScreenInteract);
+      window.removeEventListener('wheel', onScreenInteract, { passive: true });
     }
 
-    async function onScreenInteract() {
-      if (await tryStartMusic()) unbindScreenMusic();
+    function onScreenInteract(e) {
+      if (e && e.pointerType === 'touch') return;
+      tryStartMusic();
     }
 
-    document.addEventListener('touchstart', onScreenInteract, { passive: true });
-    document.addEventListener('touchmove', onScreenInteract, { passive: true });
-    document.addEventListener('scroll', onScreenInteract, { passive: true, capture: true });
+    function onTouchStart() {
+      tryStartMusic();
+    }
 
-    musicToggle.addEventListener('click', async () => {
-      try {
-        if (weddingAudio.paused) {
-          await weddingAudio.play();
-          musicUnlocked = true;
-          setMusicPlaying(true);
-          unbindScreenMusic();
-        } else {
-          weddingAudio.pause();
-          setMusicPlaying(false);
+    // capture trên window — bắt ngay khi đặt ngón tay để vuốt (trước khi cuộn)
+    window.addEventListener('touchstart', onTouchStart, touchCapture);
+    document.addEventListener('pointerdown', onScreenInteract, { passive: true });
+    window.addEventListener('wheel', onScreenInteract, { passive: true });
+
+    musicToggle.addEventListener('click', () => {
+      if (weddingAudio.paused) {
+        unlockPending = false;
+        weddingAudio.muted = false;
+        const playAttempt = weddingAudio.play();
+        if (playAttempt === undefined) {
+          finishMusicUnlock();
+          return;
         }
-      } catch {
+        playAttempt.then(() => finishMusicUnlock()).catch(() => setMusicPlaying(false));
+      } else {
+        weddingAudio.pause();
         setMusicPlaying(false);
       }
     });
@@ -1271,7 +1302,7 @@
     // Falling hearts
     const heartsRain = document.getElementById('hearts-rain');
     const heartColors = ['#ffb6c1', '#f8a5c2', '#f48fb1', '#ffc0cb', '#e891ad', '#ff9eb5'];
-    const maxHearts = 48;
+    const maxHearts = 10;
 
     function spawnHeart(fromTop = true) {
       if (heartsRain.children.length >= maxHearts) return;

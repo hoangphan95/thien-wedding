@@ -1,0 +1,22 @@
+{
+  "name": "thien-wedding",
+  "version": "1.0.0",
+  "description": "Wedding website for Thiện and Ánh",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangphan95/thien-wedding.git"
+  },
+  "keywords": ["wedding"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoangphan95/thien-wedding/issues"
+  },
+  "homepage": "https://github.com/hoangphan95/thien-wedding#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
